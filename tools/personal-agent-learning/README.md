@@ -26,7 +26,7 @@
 
 这里刻意以 common-agent-lib 的 CodeBuddy Runtime 0.3.276 为基线。agentic-data-architect 当前 lockfile 的 SDK 版本是 0.3.274；它的调用方式是应用自己直接使用 `query()`，并拥有自己的工具授权、workspace 限制和 Investigation 业务状态。本工具使用 common-agent-lib 的已封装 `query()` Runtime，因此跟随其已经探测过的 0.3.276，不把 0.3.274 和 0.3.276 混成一个“兼容版本”。
 
-CodeBuddy SDK 的 `query()` 是异步消息流。common-agent-lib 已处理初始化 timeout、迭代读取 cancellation、late query handle interruption、Session ID、usage 和 Structured Output。Reflector 只使用无普通工具的结构化输出调用。Copilot Reflector 使用 `mode: "empty"`，不允许它在整理日志时调用文件、Shell 或 MCP 工具。
+CodeBuddy SDK 的 `query()` 是异步消息流。common-agent-lib 已处理初始化 timeout、迭代读取 cancellation、late query handle interruption、Session ID、usage 和 Structured Output。Reflector 只使用无普通工具的结构化输出调用。Copilot Reflector 使用 `mode: "empty"`，并在 Session 层显式设置 `availableTools: []`、`tools: []`；Permission callback 也会 fail-closed 拒绝任何意外的工具请求。它只负责反思，不具备文件、Shell 或 MCP 工具面。
 
 ## 安装
 
