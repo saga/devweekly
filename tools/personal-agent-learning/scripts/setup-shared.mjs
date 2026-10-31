@@ -62,7 +62,7 @@ if (codeBuddyRuntime.dependencies?.['@tencent-ai/agent-sdk'] !== '0.3.276') {
 }
 
 console.log('Installing shared runtime dependencies...');
-run('npm', ['install'], commonDir);
+run('npm', ['install', '--package-lock=false'], commonDir);
 
 // Keep both SDK runtimes aligned with the versions exercised by Saga applications:
 // Copilot 1.0.17 is the agentic-data-architect lockfile version;
