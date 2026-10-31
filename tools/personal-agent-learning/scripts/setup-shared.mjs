@@ -99,4 +99,4 @@ try {
   writeFileSync(packageJsonPath, JSON.stringify(projectManifest, null, 2) + '\n', 'utf8');
 }
 
-console.log('Personal Agent Learning is linked to the common-agent-lib runtime packages.');
+console.log('Personal Agent Learning is installed against the common-agent-lib runtime packages.');
