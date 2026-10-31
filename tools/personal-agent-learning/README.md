@@ -190,7 +190,7 @@ npm run dev -- outcome --status reworked \\
   --text "结果遗漏了测试，要求重新执行。"
 ```
 
-反馈文本只在用户明确输入 `feedback --text` 或调用 `observer.recordFeedback(context, 'correction', text)` 时保存；保存前会移除常见 Secret / Bearer Token。任务结果可以调用 `observer.recordOutcome(context, 'reworked', note)`；偏好投放通过 `observer.resolvePreferences(context, overrides)` 自动记录 Profile 版本和实际使用的 Preference IDs。完整 Prompt、Assistant response、Reasoning、工具参数和工具结果都不由 Observer 保存。
+反馈文本只在用户明确输入 `feedback --text` 或调用 `observer.recordFeedback(context, 'correction', text)` 时保存；保存前会移除常见 Secret / Bearer Token。 每日 Reflector 会把这些已脱敏的显式反馈文本和不含正文的运行元数据发送给你指定的 Copilot 或 CodeBuddy 模型进行分析；如果你要求分析完全离线，必须使用本地模型/本地执行环境，不能把“本地 SQLite”误认为“分析过程不会出网”。任务结果可以调用 `observer.recordOutcome(context, 'reworked', note)`；偏好投放通过 `observer.resolvePreferences(context, overrides)` 自动记录 Profile 版本和实际使用的 Preference IDs。完整 Prompt、Assistant response、Reasoning、工具参数和工具结果都不由 Observer 保存。
 
 ## 每日归纳、审核和生效
 
