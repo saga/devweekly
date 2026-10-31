@@ -116,7 +116,7 @@ try {
     turnId,
     lockKey: session.sessionId,
     session,
-    prompt: preferences.instructions + '\\n\\n' + prompt,
+    prompt: preferences.instructions + '\n\n' + prompt,
     timeoutMs: 300_000,
     handlers: {
       onDelta: existingOnDelta,
@@ -156,7 +156,7 @@ const observerHandlers = observer.codeBuddyHandlers(context);
 
 try {
   const result = await runtime.run({
-    prompt: preferences.instructions + '\\n\\n' + prompt,
+    prompt: preferences.instructions + '\n\n' + prompt,
     model,
     cwd: process.cwd(),
     timeoutMs: 300_000,
